@@ -1,0 +1,11 @@
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Data\bin\Debug\netcoreapp2.0\Todo.Data.deps.json
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Data\bin\Debug\netcoreapp2.0\Todo.Data.dll
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Data\bin\Debug\netcoreapp2.0\Todo.Data.pdb
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Data\obj\Debug\netcoreapp2.0\Todo.Data.csproj.CoreCompileInputs.cache
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Data\obj\Debug\netcoreapp2.0\Todo.Data.AssemblyInfoInputs.cache
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Data\obj\Debug\netcoreapp2.0\Todo.Data.AssemblyInfo.cs
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Data\obj\Debug\netcoreapp2.0\Todo.Data.dll
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Data\obj\Debug\netcoreapp2.0\Todo.Data.pdb
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Data\obj\Debug\netcoreapp2.0\Todo.Data.csprojResolveAssemblyReference.cache
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Data\bin\Debug\netcoreapp2.0\Todo.Entities.dll
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Data\bin\Debug\netcoreapp2.0\Todo.Entities.pdb

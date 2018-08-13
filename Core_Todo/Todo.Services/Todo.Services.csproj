@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Todo.Entities\Todo.Entities.csproj" />
+    <ProjectReference Include="..\Todo.Models\Todo.Models.csproj" />
+    <ProjectReference Include="..\Todo.Repositories\Todo.Repositories.csproj" />
+  </ItemGroup>
+
+</Project>

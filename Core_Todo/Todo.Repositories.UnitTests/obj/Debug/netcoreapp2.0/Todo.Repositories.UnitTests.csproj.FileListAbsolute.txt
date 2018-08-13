@@ -1,0 +1,14 @@
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Repositories.UnitTests\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Repositories.UnitTests\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Repositories.UnitTests\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Repositories.UnitTests\bin\Debug\netcoreapp2.0\Todo.Repositories.UnitTests.deps.json
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Repositories.UnitTests\bin\Debug\netcoreapp2.0\Todo.Repositories.UnitTests.runtimeconfig.json
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Repositories.UnitTests\bin\Debug\netcoreapp2.0\Todo.Repositories.UnitTests.runtimeconfig.dev.json
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Repositories.UnitTests\bin\Debug\netcoreapp2.0\Todo.Repositories.UnitTests.dll
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Repositories.UnitTests\bin\Debug\netcoreapp2.0\Todo.Repositories.UnitTests.pdb
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Repositories.UnitTests\obj\Debug\netcoreapp2.0\Todo.Repositories.UnitTests.csproj.CoreCompileInputs.cache
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Repositories.UnitTests\obj\Debug\netcoreapp2.0\Todo.Repositories.UnitTests.AssemblyInfoInputs.cache
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Repositories.UnitTests\obj\Debug\netcoreapp2.0\Todo.Repositories.UnitTests.AssemblyInfo.cs
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Repositories.UnitTests\obj\Debug\netcoreapp2.0\Todo.Repositories.UnitTests.dll
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Repositories.UnitTests\obj\Debug\netcoreapp2.0\Todo.Repositories.UnitTests.pdb
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Repositories.UnitTests\obj\Debug\netcoreapp2.0\Todo.Repositories.UnitTests.csprojResolveAssemblyReference.cache

@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LINQKit.Core" Version="1.1.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.1" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.0.8.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Todo.Common\Todo.Common.csproj" />
+    <ProjectReference Include="..\Todo.Entities\Todo.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

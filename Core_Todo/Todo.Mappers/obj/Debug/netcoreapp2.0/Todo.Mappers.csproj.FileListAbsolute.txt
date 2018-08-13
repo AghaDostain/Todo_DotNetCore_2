@@ -1,0 +1,15 @@
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Mappers\obj\Debug\netcoreapp2.0\Todo.Mappers.csproj.CoreCompileInputs.cache
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Mappers\obj\Debug\netcoreapp2.0\Todo.Mappers.AssemblyInfoInputs.cache
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Mappers\obj\Debug\netcoreapp2.0\Todo.Mappers.AssemblyInfo.cs
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Mappers\bin\Debug\netcoreapp2.0\Todo.Mappers.deps.json
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Mappers\bin\Debug\netcoreapp2.0\Todo.Mappers.dll
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Mappers\obj\Debug\netcoreapp2.0\Todo.Mappers.csprojResolveAssemblyReference.cache
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Mappers\bin\Debug\netcoreapp2.0\Todo.Mappers.pdb
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Mappers\bin\Debug\netcoreapp2.0\Todo.Common.dll
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Mappers\bin\Debug\netcoreapp2.0\Todo.Entities.dll
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Mappers\bin\Debug\netcoreapp2.0\Todo.Models.dll
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Mappers\bin\Debug\netcoreapp2.0\Todo.Entities.pdb
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Mappers\bin\Debug\netcoreapp2.0\Todo.Models.pdb
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Mappers\bin\Debug\netcoreapp2.0\Todo.Common.pdb
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Mappers\obj\Debug\netcoreapp2.0\Todo.Mappers.dll
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Mappers\obj\Debug\netcoreapp2.0\Todo.Mappers.pdb

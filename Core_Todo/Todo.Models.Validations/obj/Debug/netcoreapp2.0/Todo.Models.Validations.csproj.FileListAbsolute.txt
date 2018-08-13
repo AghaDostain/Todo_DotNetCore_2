@@ -1,0 +1,13 @@
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Models.Validations\bin\Debug\netcoreapp2.0\Todo.Models.Validations.deps.json
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Models.Validations\bin\Debug\netcoreapp2.0\Todo.Models.Validations.dll
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Models.Validations\bin\Debug\netcoreapp2.0\Todo.Models.Validations.pdb
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Models.Validations\obj\Debug\netcoreapp2.0\Todo.Models.Validations.csproj.CoreCompileInputs.cache
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Models.Validations\obj\Debug\netcoreapp2.0\Todo.Models.Validations.AssemblyInfoInputs.cache
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Models.Validations\obj\Debug\netcoreapp2.0\Todo.Models.Validations.AssemblyInfo.cs
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Models.Validations\obj\Debug\netcoreapp2.0\Todo.Models.Validations.dll
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Models.Validations\obj\Debug\netcoreapp2.0\Todo.Models.Validations.pdb
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Models.Validations\obj\Debug\netcoreapp2.0\Todo.Models.Validations.csprojResolveAssemblyReference.cache
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Models.Validations\bin\Debug\netcoreapp2.0\Todo.Common.dll
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Models.Validations\bin\Debug\netcoreapp2.0\Todo.Models.dll
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Models.Validations\bin\Debug\netcoreapp2.0\Todo.Models.pdb
+C:\Users\miqbal\Source\repos\Core_Todo\Todo.Models.Validations\bin\Debug\netcoreapp2.0\Todo.Common.pdb
