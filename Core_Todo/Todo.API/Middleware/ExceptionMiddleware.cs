@@ -16,6 +16,8 @@ namespace Todo.WebAPI
         public const string DefaultErrorMessage = "Error occurred!";
         private readonly IHostingEnvironment Enviroment;
         private readonly JsonSerializer Serializer;
+        private readonly RequestDelegate Next;
+        public ExceptionMiddleware(RequestDelegate next) => this.Next = next;
         public ExceptionMiddleware(IHostingEnvironment env)
         {
             Enviroment = env;
@@ -24,16 +26,26 @@ namespace Todo.WebAPI
         }
         public async Task Invoke(HttpContext context)
         {
+            try
+            {
+                await Next(context);
+            }
+            catch(Exception ex)
+            {
+                await HandleExceptionAsync(context,ex);
+            }
+        }
+        private Task HandleExceptionAsync(HttpContext context,Exception ex)
+        {
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
             context.Response.ContentType = "application/json";
-            var ex = context.Features.Get<IExceptionHandlerFeature>()?.Error;
-            if (ex == null) return;
-            var error = BuildError(ex, Enviroment);
-            using (var writer = new StreamWriter(context.Response.Body))
-            {
-                Serializer.Serialize(writer, error);
-                await writer.FlushAsync().ConfigureAwait(false);
-            }
+            var exc = context.Features.Get<IExceptionHandlerFeature>()?.Error;
+            if (exc == null) return null;
+            var error = BuildError(exc, Enviroment);
+            var resultObject = JsonConvert.SerializeObject( new ContentActionResult<ExceptionDetail>(HttpStatusCode.InternalServerError, error, "INTERNAL SERVER ERROR", null));
+            var contentActionResult = JsonConvert.DeserializeObject<ContentActionResult<ExceptionDetail>>(resultObject);
+            var result = JsonConvert.SerializeObject(contentActionResult.ObjectResult.Value);
+            return context.Response.WriteAsync(result);
         }
         private static ExceptionDetail BuildError(Exception ex, IHostingEnvironment env)
         {

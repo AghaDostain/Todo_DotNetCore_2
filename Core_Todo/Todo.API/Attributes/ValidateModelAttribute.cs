@@ -1,6 +1,8 @@
-﻿using Todo.WebAPI.Exceptions;
-using Microsoft.AspNetCore.Mvc;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Net;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Todo.Common.Exceptions;
 namespace Todo.WebAPI.Attributes
 {
     public sealed class ValidateModelAttribute : ActionFilterAttribute
@@ -9,7 +11,8 @@ namespace Todo.WebAPI.Attributes
         {
             if (!context.ModelState.IsValid)
             {
-                context.Result = new BadRequestObjectResult(new ExceptionDetail(context.ModelState));
+                var errors = context.ModelState.Keys.SelectMany(key => context.ModelState[key].Errors.Select(error => new ValidationError(key,error.ErrorMessage))).ToList();
+                context.Result = new ContentActionResult<IList<ValidationError>>(HttpStatusCode.BadRequest, errors, "BAD REQUEST", null);
             }
         }
     }

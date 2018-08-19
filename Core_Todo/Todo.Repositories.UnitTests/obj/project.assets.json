@@ -5703,11 +5703,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Repositories.UnitTests\\Todo.Repositories.UnitTests.csproj",
+      "projectUniqueName": "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Repositories.UnitTests\\Todo.Repositories.UnitTests.csproj",
       "projectName": "Todo.Repositories.UnitTests",
-      "projectPath": "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Repositories.UnitTests\\Todo.Repositories.UnitTests.csproj",
+      "projectPath": "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Repositories.UnitTests\\Todo.Repositories.UnitTests.csproj",
       "packagesPath": "C:\\Users\\miqbal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Repositories.UnitTests\\obj\\",
+      "outputPath": "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Repositories.UnitTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

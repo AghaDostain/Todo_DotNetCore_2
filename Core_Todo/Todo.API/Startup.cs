@@ -1,22 +1,21 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using AutoMapper;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
 using Todo.Data;
-using Todo.Exceptions;
-using Todo.Mappers.Profiles;
 using Todo.Repositories;
 using Todo.Services;
 using Todo.WebAPI;
 using Todo.WebAPI.Attributes;
 using Todo.Models.Validations;
+using System.Net;
+using Microsoft.AspNetCore.Routing;
+using Todo.Common.Exceptions;
 namespace Core_Todo
 {
     public class Startup
@@ -25,15 +24,13 @@ namespace Core_Todo
         {
             Configuration = configuration;
         }
-
         public IConfiguration Configuration { get; }
-
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IUserTaskManager, UserTaskManager>();
-            services.AddTransient<IUserTaskRepository, UserTaskRepository>();
-            services.AddTransient<DbContext, DataContext>();
+            services.AddScoped<IUserTaskManager, UserTaskManager>();
+            services.AddScoped<IUserTaskRepository, UserTaskRepository>();
+            services.AddScoped<DbContext, DataContext>();
             //services.AddTransient<IMapper, Mapper>();
             //Mapper.Initialize(m =>
             //{
@@ -45,7 +42,6 @@ namespace Core_Todo
             //});
             //Automapper profile
             //Mapper.Initialize(cfg => cfg.AddProfile<UserTaskProfile>());
-
             //services.Add(ServiceDescriptor.Transient(typeof(UserTaskModelValidator), typeof(UserTaskModelValidator)));
             services.AddMvc(opt=> opt.Filters.Add(typeof(ValidateModelAttribute)))
                 .AddControllersAsServices()
@@ -53,10 +49,8 @@ namespace Core_Todo
             services.AddAutoMapper();
             //services.AddAutoMapper(null, AppDomain.CurrentDomain.GetAssemblies());
             services.AddSingleton<IConfiguration>(Configuration);
-
             var connection = @"Server=.;Database=ToDo;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<DataContext>(opt => opt.UseSqlServer(connection));
-
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
@@ -70,30 +64,21 @@ namespace Core_Todo
                 options.SuppressModelStateInvalidFilter = true;
                 options.InvalidModelStateResponseFactory = actionContext =>
                 {
-                    var errors = actionContext.ModelState
-                        .Where(e => e.Value.Errors.Count > 0)
-                        .Select(e => new
-                        {
-                            Name = e.Key,
-                            Message = e.Value.Errors.First().ErrorMessage
-                        }).ToArray();
-                    return new BadRequestObjectResult(errors);
+                    var error = actionContext.ModelState.Keys.SelectMany(key => actionContext.ModelState[key].Errors.Select(ex => new ValidationError(key, ex.ErrorMessage))).FirstOrDefault();
+                    return new ContentActionResult<ValidationError>(HttpStatusCode.BadRequest, error, "BAD REQUEST", null);
                 };
             });
-
-
         }
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            var routeBuilder = new RouteBuilder(app);
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
-
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
@@ -103,9 +88,7 @@ namespace Core_Todo
             // Serialize all exceptions to JSON
             var jsonExceptionMiddleware = new ExceptionMiddleware( app.ApplicationServices.GetRequiredService<IHostingEnvironment>());
             app.UseExceptionHandler(new ExceptionHandlerOptions { ExceptionHandler = jsonExceptionMiddleware.Invoke });
-
             app.UseMvc();
         }
-
     }
 }

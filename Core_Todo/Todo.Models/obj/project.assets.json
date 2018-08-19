@@ -689,11 +689,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Models\\Todo.Models.csproj",
+      "projectUniqueName": "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Models\\Todo.Models.csproj",
       "projectName": "Todo.Models",
-      "projectPath": "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Models\\Todo.Models.csproj",
+      "projectPath": "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Models\\Todo.Models.csproj",
       "packagesPath": "C:\\Users\\miqbal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Models\\obj\\",
+      "outputPath": "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -712,8 +712,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Common\\Todo.Common.csproj": {
-              "projectPath": "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Common\\Todo.Common.csproj"
+            "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Common\\Todo.Common.csproj": {
+              "projectPath": "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Common\\Todo.Common.csproj"
             }
           }
         }

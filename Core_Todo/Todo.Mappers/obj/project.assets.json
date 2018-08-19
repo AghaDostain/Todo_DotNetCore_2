@@ -4824,11 +4824,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Mappers\\Todo.Mappers.csproj",
+      "projectUniqueName": "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Mappers\\Todo.Mappers.csproj",
       "projectName": "Todo.Mappers",
-      "projectPath": "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Mappers\\Todo.Mappers.csproj",
+      "projectPath": "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Mappers\\Todo.Mappers.csproj",
       "packagesPath": "C:\\Users\\miqbal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Mappers\\obj\\",
+      "outputPath": "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Mappers\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -4847,11 +4847,11 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Entities\\Todo.Entities.csproj": {
-              "projectPath": "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Entities\\Todo.Entities.csproj"
+            "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Entities\\Todo.Entities.csproj": {
+              "projectPath": "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Entities\\Todo.Entities.csproj"
             },
-            "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Models\\Todo.Models.csproj": {
-              "projectPath": "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Models\\Todo.Models.csproj"
+            "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Models\\Todo.Models.csproj": {
+              "projectPath": "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Models\\Todo.Models.csproj"
             }
           }
         }

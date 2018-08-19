@@ -673,11 +673,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Common\\Todo.Common.csproj",
+      "projectUniqueName": "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Common\\Todo.Common.csproj",
       "projectName": "Todo.Common",
-      "projectPath": "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Common\\Todo.Common.csproj",
+      "projectPath": "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Common\\Todo.Common.csproj",
       "packagesPath": "C:\\Users\\miqbal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Common\\obj\\",
+      "outputPath": "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Common\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

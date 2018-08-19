@@ -128,6 +128,20 @@ _TeamCity*
 # DotCover is a Code Coverage Tool
 *.dotCover
 
+# NCrunch
+_NCrunch_*
+.*crunch*.local.xml
+nCrunchTemp_*
+
+# MightyMoose
+*.mm.*
+AutoTest.Net/
+
+# Web workbench (sass)
+.sass-cache/
+
+# Installshield output folder
+[Ee]xpress/
 # AxoCover is a Code Coverage Tool
 .axoCover/*
 !.axoCover/settings.json
@@ -196,6 +210,8 @@ csx/
 # Microsoft Azure Emulator
 ecf/
 rcf/
+# Microsoft Azure ApplicationInsights config file
+ApplicationInsights.config
 
 # Windows Store app package directories and files
 AppPackages/
@@ -219,6 +235,7 @@ ClientBin/
 *.jfm
 *.pfx
 *.publishsettings
+node_modules/
 orleans.codegen.cs
 
 # Including strong name files can present a security risk 

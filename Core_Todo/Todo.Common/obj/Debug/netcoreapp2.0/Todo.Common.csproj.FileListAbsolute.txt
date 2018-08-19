@@ -7,3 +7,11 @@ C:\Users\miqbal\Source\repos\Core_Todo\Todo.Common\obj\Debug\netcoreapp2.0\Todo.
 C:\Users\miqbal\Source\repos\Core_Todo\Todo.Common\obj\Debug\netcoreapp2.0\Todo.Common.dll
 C:\Users\miqbal\Source\repos\Core_Todo\Todo.Common\obj\Debug\netcoreapp2.0\Todo.Common.pdb
 C:\Users\miqbal\Source\repos\Core_Todo\Todo.Common\obj\Debug\netcoreapp2.0\Todo.Common.csprojResolveAssemblyReference.cache
+C:\Users\miqbal\Source\repos\Todo_DotNetCore_2\Core_Todo\Todo.Common\bin\Debug\netcoreapp2.0\Todo.Common.deps.json
+C:\Users\miqbal\Source\repos\Todo_DotNetCore_2\Core_Todo\Todo.Common\bin\Debug\netcoreapp2.0\Todo.Common.dll
+C:\Users\miqbal\Source\repos\Todo_DotNetCore_2\Core_Todo\Todo.Common\bin\Debug\netcoreapp2.0\Todo.Common.pdb
+C:\Users\miqbal\Source\repos\Todo_DotNetCore_2\Core_Todo\Todo.Common\obj\Debug\netcoreapp2.0\Todo.Common.csproj.CoreCompileInputs.cache
+C:\Users\miqbal\Source\repos\Todo_DotNetCore_2\Core_Todo\Todo.Common\obj\Debug\netcoreapp2.0\Todo.Common.AssemblyInfoInputs.cache
+C:\Users\miqbal\Source\repos\Todo_DotNetCore_2\Core_Todo\Todo.Common\obj\Debug\netcoreapp2.0\Todo.Common.AssemblyInfo.cs
+C:\Users\miqbal\Source\repos\Todo_DotNetCore_2\Core_Todo\Todo.Common\obj\Debug\netcoreapp2.0\Todo.Common.dll
+C:\Users\miqbal\Source\repos\Todo_DotNetCore_2\Core_Todo\Todo.Common\obj\Debug\netcoreapp2.0\Todo.Common.pdb

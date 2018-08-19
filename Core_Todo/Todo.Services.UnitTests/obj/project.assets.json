@@ -7421,11 +7421,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Services.UnitTests\\Todo.Services.UnitTests.csproj",
+      "projectUniqueName": "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Services.UnitTests\\Todo.Services.UnitTests.csproj",
       "projectName": "Todo.Services.UnitTests",
-      "projectPath": "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Services.UnitTests\\Todo.Services.UnitTests.csproj",
+      "projectPath": "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Services.UnitTests\\Todo.Services.UnitTests.csproj",
       "packagesPath": "C:\\Users\\miqbal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Services.UnitTests\\obj\\",
+      "outputPath": "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Services.UnitTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -7444,20 +7444,20 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Data\\Todo.Data.csproj": {
-              "projectPath": "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Data\\Todo.Data.csproj"
+            "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Data\\Todo.Data.csproj": {
+              "projectPath": "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Data\\Todo.Data.csproj"
             },
-            "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Models\\Todo.Models.csproj": {
-              "projectPath": "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Models\\Todo.Models.csproj"
+            "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Models\\Todo.Models.csproj": {
+              "projectPath": "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Models\\Todo.Models.csproj"
             },
-            "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Repositories\\Todo.Repositories.csproj": {
-              "projectPath": "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Repositories\\Todo.Repositories.csproj"
+            "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Repositories\\Todo.Repositories.csproj": {
+              "projectPath": "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Repositories\\Todo.Repositories.csproj"
             },
-            "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Services\\Todo.Services.csproj": {
-              "projectPath": "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Services\\Todo.Services.csproj"
+            "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Services\\Todo.Services.csproj": {
+              "projectPath": "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Services\\Todo.Services.csproj"
             },
-            "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Mappers\\Todo.Mappers.csproj": {
-              "projectPath": "C:\\Users\\miqbal\\Source\\repos\\Core_Todo\\Todo.Mappers\\Todo.Mappers.csproj"
+            "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Mappers\\Todo.Mappers.csproj": {
+              "projectPath": "C:\\Users\\miqbal\\Source\\repos\\Todo_DotNetCore_2\\Core_Todo\\Todo.Mappers\\Todo.Mappers.csproj"
             }
           }
         }

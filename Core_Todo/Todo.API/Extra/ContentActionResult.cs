@@ -8,18 +8,19 @@ namespace Todo.WebAPI
 {
     public class ContentActionResult<T> : IActionResult where T : class
     {
-        public ObjectResult objectResult { get; set; }
-        public ContentActionResult(HttpStatusCode status, T data, string message, HttpRequest request, int total = 1)
+        public ObjectResult ObjectResult { get; set; }
+        public ContentActionResult(HttpStatusCode status, T data, string message, HttpRequest request, int total = 1) => ObjectResult = new ObjectResult(data)
         {
-            objectResult = new ObjectResult(data)
+            StatusCode = (int)status,
+            Value = new
             {
-                StatusCode = (int)status,
-                Value = ContentHelper.GetContent(status,message,data,request,total )
-            };
-        }
-        public async Task ExecuteResultAsync(ActionContext context)
-        {
-            await objectResult.ExecuteResultAsync(context);
-        }
+                status = status,
+                message = message,
+                data = data,
+                total = total,
+                requestId = System.Diagnostics.Trace.CorrelationManager.ActivityId
+            }//ContentHelper.GetContent(status,message,data,request,total )
+        };
+        public async Task ExecuteResultAsync(ActionContext context) => await ObjectResult.ExecuteResultAsync(context);
     }
 }

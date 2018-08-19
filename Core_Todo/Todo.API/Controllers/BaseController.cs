@@ -78,6 +78,8 @@ namespace Todo.WebAPI.Controllers
             return new ContentActionResult<string>(HttpStatusCode.OK, string.Empty, "OK", Request);
         }
         // search: api/entity/search
+        [HttpGet("search")]
+        [ProducesResponseType(200)]
         public virtual async Task<IActionResult> Search(SearchRequest request)
         {
             var result = await DomainManager.SearchAsync(request);
