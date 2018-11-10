@@ -15,10 +15,12 @@ namespace Todo.Repositories
     public abstract class GenericRepository<TEntity> : IDisposable, IGenericRepository<TEntity> where TEntity : class
     {
         protected DbContext context;
+
         public GenericRepository(DbContext context)
         {
             this.context = context;
         }
+
         //public GenericRepository()
         //{
         //    this.context = new PortalDataContext();
@@ -29,14 +31,17 @@ namespace Todo.Repositories
             await SaveAsync();
             return entity;
         }
+
         public virtual void Attach(TEntity entity)
         {
             context.Set<TEntity>().Attach(entity);
         }
+
         public virtual async Task<int> CountAsync()
         {
             return await context.Set<TEntity>().CountAsync();
         }
+
         public virtual async Task DeleteAsync(TEntity entity)
         {
             if (context.Entry(entity).State == EntityState.Detached)
@@ -46,15 +51,19 @@ namespace Todo.Repositories
             context.Set<TEntity>().Remove(entity);
             await SaveAsync();
         }
+
         public virtual async Task DeleteAsync(object id)
         {
             TEntity entity = await context.Set<TEntity>().FindAsync(id);
-            await DeleteAsync(entity);
+            if (entity != null)
+                await DeleteAsync(entity);
         }
+
         public void Dispose()
         {
             this.context.Dispose();
         }
+
         public virtual async Task<PagedData<TEntity>> FindAsync(Expression<Func<TEntity, bool>> filter = null, string orderBy = null, int? pageNumber = 0, int? pageSize = 0, string includeProperties = "")
         {
             //out int totalCount,
@@ -74,15 +83,17 @@ namespace Todo.Repositories
                 //Get distinct rows
                 query = query.Distinct();
                 //Get the count
-                result.TotalCount = await query.CountAsync();
-                result.Items = await OrderedPage(query, orderBy, pageNumber, pageSize).ToListAsync();
+                //result.TotalCount = await query.CountAsync();
+                result.Items = await Task.FromResult(OrderedPage(query, orderBy, pageNumber, pageSize).ToList());
+                result.TotalCount = result.Items.Count();
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
             return result;
         }
+
         public virtual async Task<PagedData<TEntity>> FindAsync(Expression<Func<TEntity, bool>> filter = null, string orderBy = null, int? pageNumber = 0, int? pageSize = 0, params Expression<Func<TEntity, object>>[] includeExpressions)
         {
             //out int totalCount,
@@ -105,19 +116,22 @@ namespace Todo.Repositories
                 //Get distinct rows
                 query = query.Distinct();
                 //Get the count
-                result.TotalCount = await query.CountAsync();
-                result.Items = await OrderedPage(query, orderBy, pageNumber, pageSize).ToListAsync();
+                //result.TotalCount = await query.CountAsync();
+                result.Items = await Task.FromResult(OrderedPage(query, orderBy, pageNumber, pageSize).ToList());
+                result.TotalCount = result.Items.Count();
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
             return result;
         }
+
         public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
         {
             return await context.Set<TEntity>().AsNoTracking().ToListAsync();
         }
+
         public virtual async Task<PagedData<TEntity>> GetAllAsync(string orderBy = null, int? pageNumber = 0, int? pageSize = 0)
         {
             var result = new PagedData<TEntity>();
@@ -126,20 +140,15 @@ namespace Todo.Repositories
             var query = context.Set<TEntity>().AsQueryable();
             query = query.Distinct();
             //Get the count
-            result.TotalCount = await query.CountAsync();
-            result.Items = await OrderedPage(query, orderBy, pageNumber, pageSize).ToListAsync();
+            //result.TotalCount = await query.CountAsync();
+            result.Items = await Task.FromResult(OrderedPage(query, orderBy, pageNumber, pageSize).ToList());
+            result.TotalCount = result.Items.Count();
             return result;
         }
+
         public virtual async Task<TEntity> GetByIdAsync(object id)
         {
-            try
-            {
-                return await context.Set<TEntity>().FindAsync(id);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            return await context.Set<TEntity>().FindAsync(id);
         }
 
         public virtual async Task<TEntity> GetByIdAsync(Expression<Func<TEntity, bool>> filter, params Expression<Func<TEntity, object>>[] includeExpressions)
@@ -155,6 +164,7 @@ namespace Todo.Repositories
             }
             return await query.SingleOrDefaultAsync<TEntity>();
         }
+
         public virtual async Task SaveAsync()
         {
             try
@@ -164,15 +174,17 @@ namespace Todo.Repositories
             catch (DbUpdateException duex)
             {
                 //ExceptionHelper.Process(duex);
-                throw(duex);
+                throw (duex);
             }
         }
+
         public virtual async Task<TEntity> UpdateAsync(TEntity entity, Func<TEntity, bool> key = null)
         {
             InternalUpdate(entity, key);
             await SaveAsync();
             return entity;
         }
+
         public virtual async Task UpdateAsync(Expression<Func<TEntity, bool>> filter,
             IEnumerable<object> updatedSet, // Updated many-to-many relationships
             string propertyName) // The name of the navigation property
@@ -208,6 +220,7 @@ namespace Todo.Repositories
                 */
             context.Entry(previous).Collection(propertyName).CurrentValue = values;
         }
+
         public virtual async Task UpdateAsync<TRelated>(Expression<Func<TEntity, bool>> filter, IEnumerable<TRelated> relatedItems, Expression<Func<TEntity, IEnumerable<TRelated>>> includeExpression)
             where TRelated : class
         {
@@ -247,9 +260,10 @@ namespace Todo.Repositories
             context.Entry(previous).Collection(includeExpression).CurrentValue.DefaultIfEmpty();
             //foreach (var item in relatedValues)
             //{
-                context.Entry(previous).Collection(includeExpression).CurrentValue.Concat(relatedValues);
+            context.Entry(previous).Collection(includeExpression).CurrentValue.Concat(relatedValues);
             //}
         }
+
         protected void InternalUpdate(TEntity entity, Func<TEntity, bool> key)
         {
             var entry = context.Entry<TEntity>(entity);
@@ -268,10 +282,11 @@ namespace Todo.Repositories
                 }
             }
         }
+
         protected IQueryable<TEntity> OrderedPage(IQueryable<TEntity> query, string orderBy = null, int? pageNumber = 0, int? pageSize = 0)
         {
             orderBy = GuardOrderBy(orderBy);
-            query = query.OrderBy(orderBy);
+            query = query.OrderBy<TEntity>(orderBy);
             //Changed . Min page number is 1.
             if (pageSize != null && pageNumber != null && pageSize > 0 && pageNumber >= 1)
             {
@@ -279,11 +294,13 @@ namespace Todo.Repositories
             }
             return query;
         }
+
         private IList CreateList(Type type)
         {
             var genericList = typeof(List<>).MakeGenericType(type);
             return (IList)Activator.CreateInstance(genericList);
         }
+
         private string GuardOrderBy(string orderBy)
         {
             //TODO: Move default order to configuration
@@ -301,7 +318,7 @@ namespace Todo.Repositories
                         !(orderByOrder.Equals("asc", StringComparison.InvariantCultureIgnoreCase)
                         || orderByOrder.Equals("desc", StringComparison.InvariantCultureIgnoreCase)))
                     {
-                        return "Id asc";
+                        return "Id desc";
                     }
                     else
                         return string.Concat(orderByField, " ", orderByOrder);
@@ -310,13 +327,13 @@ namespace Todo.Repositories
                 {
                     var orderByField = TypeHelper.MapToValidPropertyName<TEntity>(orderBy);
                     if (orderByField == null)
-                        return "Id asc";
+                        return "Id desc";
                     else
                         return orderByField;
                 }
             }
             else
-                return "Id asc";
+                return "Id desc";
         }
     }
 }

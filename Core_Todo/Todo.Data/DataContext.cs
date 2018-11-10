@@ -27,6 +27,7 @@ namespace Todo.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //modelBuilder.ApplyAllConfigurations();
             base.OnModelCreating(modelBuilder);
             new UserTaskMap(modelBuilder.Entity<UserTask>());
         }

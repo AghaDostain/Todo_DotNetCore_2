@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore;
+﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 
 namespace Core_Todo
 {
@@ -19,6 +12,11 @@ namespace Core_Todo
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                 //.UseApplicationInsights()
+                .CaptureStartupErrors(true)
+                .UseSetting("detailedErrors", "true")
+                .UseKestrel()
+                .UseIISIntegration() // Necessary for Azure.
                 .UseStartup<Startup>()
                 .Build();
     }

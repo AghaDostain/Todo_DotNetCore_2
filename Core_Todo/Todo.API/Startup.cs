@@ -16,6 +16,15 @@ using Todo.Models.Validations;
 using System.Net;
 using Microsoft.AspNetCore.Routing;
 using Todo.Common.Exceptions;
+using System.Reflection;
+using NetCore.AutoRegisterDi;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.AspNetCore.Identity;
+using Todo.Entities;
+
 namespace Core_Todo
 {
     public class Startup
@@ -28,35 +37,77 @@ namespace Core_Todo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IUserTaskManager, UserTaskManager>();
-            services.AddScoped<IUserTaskRepository, UserTaskRepository>();
-            services.AddScoped<DbContext, DataContext>();
-            //services.AddTransient<IMapper, Mapper>();
-            //Mapper.Initialize(m =>
-            //{
-            //    var profiles = typeof(UserTaskProfile).Assembly.GetTypes().Where(x => typeof(Profile).IsAssignableFrom(x));
-            //    foreach (var profile in profiles)
-            //    {
-            //        m.AddProfile(Activator.CreateInstance(profile) as Profile);
-            //    }
-            //});
-            //Automapper profile
-            //Mapper.Initialize(cfg => cfg.AddProfile<UserTaskProfile>());
-            //services.Add(ServiceDescriptor.Transient(typeof(UserTaskModelValidator), typeof(UserTaskModelValidator)));
-            services.AddMvc(opt=> opt.Filters.Add(typeof(ValidateModelAttribute)))
-                .AddControllersAsServices()
-                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<UserTaskModelValidator>());
-            services.AddAutoMapper();
-            //services.AddAutoMapper(null, AppDomain.CurrentDomain.GetAssemblies());
-            services.AddSingleton<IConfiguration>(Configuration);
-            var connection = @"Server=.;Database=ToDo;Trusted_Connection=True;ConnectRetryCount=0";
-            services.AddDbContext<DataContext>(opt => opt.UseSqlServer(connection));
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+                c.SwaggerDoc("v1", new Info
+                {
+                    Title = "Lockers App",
+                    Version = "v1"
+                });
                 c.CustomSchemaIds(x => x.FullName);
+                var security = new Dictionary<string, IEnumerable<string>>
+                {
+                    { "Bearer",new string[]{ } }
+                };
+
+                c.AddSecurityDefinition("Bearer", new ApiKeyScheme
+                {
+                    Description = "JWT Token for authorization",
+                    Name = "Authorization",
+                    In = "hearder",
+                    Type = "apiKey"
+                });
+
+                c.AddSecurityRequirement(security);
             });
+            var ServiceAssemblyToScan = Assembly.GetAssembly(typeof(UserTaskManager));
+            services.RegisterAssemblyPublicNonGenericClasses(ServiceAssemblyToScan)
+              .Where(c => c.Name.EndsWith("Manager"))
+              .AsPublicImplementedInterfaces(ServiceLifetime.Scoped);
+
+            var repositoryAssemblyToScan = Assembly.GetAssembly(typeof(UserTaskRepository));
+            services.RegisterAssemblyPublicNonGenericClasses(repositoryAssemblyToScan)
+              .Where(c => c.Name.EndsWith("Repository"))
+              .AsPublicImplementedInterfaces(ServiceLifetime.Scoped);
+
+            services.AddScoped<DbContext, DataContext>();
+
+            services.AddMvc(opt=> opt.Filters.Add(typeof(ValidateModelAttribute)))
+                .AddControllersAsServices()
+                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<UserTaskModelValidator>())
+                .AddJsonOptions(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+            services.AddAutoMapper();
+            services.AddSingleton<IConfiguration>(Configuration);
+            services.AddDbContext<DataContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            //Config JWT
+            //Authenticate JWT
+            services.AddIdentity<User, Role>()
+                .AddEntityFrameworkStores<DataContext>()
+                .AddDefaultTokenProviders();
+            services.AddAuthentication(opt =>
+            {
+                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                opt.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(opt =>
+            {
+                opt.SaveToken = true;
+                opt.RequireHttpsMetadata = false;
+                opt.Authority = "https://login.microsoftonline.com/a1d50521-9687-4e4d-a76d-ddd53ab0c668";
+                opt.Audience = "http://abc.com";
+                opt.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidAudience = "http://abc.com",
+                    ValidIssuer = "http://abc.com",
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("MySuperSecureKey"))
+                };
+            });
+
             services.Configure<Todo.Exceptions.ApiBehaviorOptions>(options =>
             {
                 options.SuppressConsumesConstraintForFormFileParameters = true;
@@ -83,11 +134,14 @@ namespace Core_Todo
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
+                c.DocExpansion(DocExpansion.None);
+                c.RoutePrefix = string.Empty;
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Todo V1.0");
             });
             // Serialize all exceptions to JSON
             var jsonExceptionMiddleware = new ExceptionMiddleware( app.ApplicationServices.GetRequiredService<IHostingEnvironment>());
             app.UseExceptionHandler(new ExceptionHandlerOptions { ExceptionHandler = jsonExceptionMiddleware.Invoke });
+            app.UseAuthentication();
             app.UseMvc();
         }
     }

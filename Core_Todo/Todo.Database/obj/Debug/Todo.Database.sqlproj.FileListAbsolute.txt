@@ -7,3 +7,8 @@ C:\Users\miqbal\Source\repos\Core_Todo\Todo.Database\obj\Debug\Model.xml
 C:\Users\miqbal\Source\repos\Core_Todo\Todo.Database\obj\Debug\refactor.xml
 C:\Users\miqbal\Source\repos\Core_Todo\Todo.Database\obj\Debug\postdeploy.sql
 C:\Users\miqbal\Source\repos\Core_Todo\Todo.Database\obj\Debug\predeploy.sql
+C:\Users\miqbal\Source\repos\Todo_DotNetCore_2\Core_Todo\Todo.Database\bin\Debug\Todo.Database.dacpac
+C:\Users\miqbal\Source\repos\Todo_DotNetCore_2\Core_Todo\Todo.Database\bin\Debug\Todo.Database.dll
+C:\Users\miqbal\Source\repos\Todo_DotNetCore_2\Core_Todo\Todo.Database\bin\Debug\Todo.Database.pdb
+C:\Users\miqbal\Source\repos\Todo_DotNetCore_2\Core_Todo\Todo.Database\obj\Debug\Todo.Database.dll
+C:\Users\miqbal\Source\repos\Todo_DotNetCore_2\Core_Todo\Todo.Database\obj\Debug\Todo.Database.pdb
